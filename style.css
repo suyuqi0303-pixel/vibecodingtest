@@ -151,6 +151,77 @@ header p {
     transform: translateY(-10px);
 }
 
+/* 高温预警样式 */
+.weather-card.high-temp-warning {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ff4757 50%, #ee5a6f 100%);
+    box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4), 
+                0 0 20px rgba(255, 107, 107, 0.3);
+    position: relative;
+    animation: fadeIn 0.5s ease-out, pulse-warning 2s infinite;
+}
+
+@keyframes pulse-warning {
+    0%, 100% {
+        box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4), 
+                    0 0 20px rgba(255, 107, 107, 0.3);
+    }
+    50% {
+        box-shadow: 0 10px 30px rgba(255, 107, 107, 0.6), 
+                    0 0 30px rgba(255, 107, 107, 0.5);
+    }
+}
+
+.high-temp-alert {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    animation: slideInDown 0.5s ease-out;
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.alert-icon {
+    font-size: 2em;
+    animation: shake-icon 0.6s infinite;
+}
+
+@keyframes shake-icon {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-5deg); }
+    75% { transform: rotate(5deg); }
+}
+
+.alert-content {
+    flex: 1;
+}
+
+.alert-title {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.alert-message {
+    font-size: 0.95em;
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.4;
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -182,6 +253,18 @@ header p {
     font-size: 3.5em;
     font-weight: bold;
     margin: 20px 0;
+    transition: transform 0.3s;
+}
+
+.temperature.high-temp {
+    color: #ffeb3b;
+    text-shadow: 0 0 10px rgba(255, 235, 59, 0.5);
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
 }
 
 .weather-description {
@@ -213,6 +296,12 @@ header p {
 .detail-value {
     font-size: 1.3em;
     font-weight: bold;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.detail-value.high-temp {
+    color: #ffeb3b;
+    text-shadow: 0 0 8px rgba(255, 235, 59, 0.5);
 }
 
 .suggested-cities {
@@ -275,5 +364,14 @@ header p {
 
     .weather-icon {
         font-size: 3em;
+    }
+
+    .high-temp-alert {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .alert-icon {
+        font-size: 1.5em;
     }
 }
