@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全球天气查询</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌍 全球天气查询</h1>
+            <p>实时查看世界各地的天气信息</p>
+        </header>
+
+        <div class="search-section">
+            <input 
+                type="text" 
+                id="cityInput" 
+                placeholder="输入城市名称 (如: 北京, 纽约, 伦敦)..."
+                autocomplete="off"
+            >
+            <button id="searchBtn">🔍 搜索</button>
+        </div>
+
+        <div id="errorMessage" class="error-message"></div>
+
+        <div id="loadingSpinner" class="loading-spinner" style="display: none;">
+            <div class="spinner"></div>
+            <p>加载中...</p>
+        </div>
+
+        <div id="weatherContainer" class="weather-container"></div>
+
+        <div id="suggestedCities" class="suggested-cities" style="display: none;">
+            <h3>热门城市</h3>
+            <div class="city-buttons">
+                <button class="city-btn" data-city="北京">北京</button>
+                <button class="city-btn" data-city="上海">上海</button>
+                <button class="city-btn" data-city="纽约">纽约</button>
+                <button class="city-btn" data-city="伦敦">伦敦</button>
+                <button class="city-btn" data-city="东京">东京</button>
+                <button class="city-btn" data-city="巴黎">巴黎</button>
+                <button class="city-btn" data-city="悉尼">悉尼</button>
+                <button class="city-btn" data-city="新加坡">新加坡</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
